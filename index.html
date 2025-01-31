@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Red Button ChatGPT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@200&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>AI Trader Button</h1>
+    <h2 id="instructions">Veuillez entrer le nom de la crypto, votre allocation disponible en dollars ainsi que votre clé API de ChatGPT</h2>
+    <input type="text" id="inputName" placeholder="Nom de la crypto" required>
+    <input type="number" id="inputNumber" placeholder="Montant disponible" min="0" step="0.01" required autofocus><br>
+    <input type="text" id="apiKey" placeholder="API Key" required>
+    <section id="riskLevel">
+        <h2>Aversion aux risques</h2>
+        <h4>Pour déterminer votre aversion au risque, vous devez choisir un niveau en fonction de ce que vous êtes prêt à accepter. Plus vous augmentez le niveau, plus vous êtes prêt à accepter des risques élevés et à potentiellement gagner davantage. En revanche, plus vous diminuez le niveau, plus vous êtes prêt à accepter des risques plus faibles et à potentiellement gagner moins. Ainsi, vous pouvez ajuster le niveau en fonction de vos préférences en termes de risques et de récompenses</h4>
+        <div id="slider-container">
+            <span id="slider-label-left">Risque faible</span>
+            <input type="range" id="number-slider" name="number-slider" min="-100" max="100" value="0" step="1">
+            <span id="slider-label-right">Risque élevé</span>
+        </div>
+        <span id="slider-value">0</span>
+    </section>
+    <button id="bigRedButton">Créer une stratégie</button>
+    <p id="response"></p>
+    <script type="module" src="script.js"></script>
+</body>
+
+<footer>
+    <p>© 2025 AI Trader Button. Tous droits réservés.</p>
+</footer>
+
+</html>
