@@ -6,6 +6,14 @@ slider.addEventListener('input', function() {
     sliderValue.textContent = this.value;
 });
 
+// Mettre à jour la valeur du slider
+const sliderDay = document.getElementById('number-slider-day');
+const sliderDayValue = document.getElementById('slider-day-value');
+
+sliderDay.addEventListener('input', function() {
+    sliderDayValue.textContent = this.value;
+});
+
 document.getElementById("bigRedButton").addEventListener("click", async function () {
     const inputNumber = document.getElementById("inputNumber").value.trim();
     const inputName = document.getElementById("inputName").value.trim().toLowerCase();
@@ -81,11 +89,11 @@ document.getElementById("bigRedButton").addEventListener("click", async function
                 messages: [
                     {
                         role: "system",
-                        content: `Tu es un expert en trading et tu dois créer une stratégie de trading claire et cohérente en analysant le marché comme Aladdin de chez Blackrock. Tu dois utiliser les prix actuels du marché et les statistiques de tendance pour choisir la meilleure stratégie de trading possible. Tu crées un plan de trading clair et cohérent. Ta réponse n'est pas une suggestion mais un plan réel avec les vraies valeurs du marché. Pas la peine de prévenir des risques à aucun moment, tu parles à un autre expert. La structure de réponse doit être toujours la même.`
+                        content: `Tu es un expert en trading et ton rôle est d’élaborer une stratégie de trading claire, structurée et directement exploitable, en analysant le marché avec la précision d’Aladdin de BlackRock. Tu dois utiliser les prix en temps réel ainsi que les statistiques de tendance pour définir la meilleure approche. Ta réponse doit être organisée de manière logique et aérée, avec une structure constante, facilitant la lecture et l’application immédiate. Il ne s’agit pas d’une simple suggestion, mais d’un plan concret basé sur des données réelles du marché. Ne mentionne pas les risques, tu t’adresses à un expert.`
                     },
                     {
                         role: "user",
-                        content: `Crée une stratégie de trading utilisable à l'instant T avec les vraies valeurs du marché sur maximum un jour sur la crypto ${inputName}. Voici mon taux d'aversion au risque entre -100(risque faible) et 100(risque élevé) : ${sliderValue.textContent}. Pour réussir à atteindre ce rendement daily, tu dois / peux utiliser les effets de levier long ou short selon les conditions du marché.
+                        content: `Crée une stratégie de trading utilisable à l'instant T avec les vraies valeurs du marché, sur une période de ${sliderDayValue.textContent} jours sur la crypto ${inputName}. Voici mon taux d'aversion au risque entre -100(risque faible) et 100(risque élevé) : ${sliderValue.textContent}. Pour réussir à atteindre ce rendement, tu peux utiliser les effets de levier. Donne moi juste la meilleure stratégie à suivre, choisi entre un long et un short selon les conditions du marché.
                         Crée la stratégie de trading en utilisant les vraies valeurs du marché de la même manière qu'Aladdin de chez Blackrock :\n
                         - Prix actuel: ${price} USD\n
                         - Volume de trading 24h: ${volume} USD\n
@@ -146,5 +154,8 @@ function formatApiResponse(responseText) {
     formattedText = formattedText.replace(/-\s/g, '<li>');
     formattedText = formattedText.replace(/\n/g, '<br/>'); // Remplacer les sauts de ligne par des <br>
 
+    // Ajouter un conteneur pour MathJax
+    formattedText = formattedText.replace(/\\\[(.*?)\\\]/gs, (match, latex) => `<div class="mathjax-latex">\\[${latex}\\]</div>`);
+
     return formattedText;
-};
+}

@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@200&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -17,7 +20,13 @@
     <input type="text" id="inputName" placeholder="Nom de la crypto" required>
     <input type="number" id="inputNumber" placeholder="Montant disponible" min="0" step="0.01" required autofocus><br>
     <input type="text" id="apiKey" placeholder="API Key" required>
-    <section id="riskLevel">
+    <section id="dayNumberContainer">
+        <h2>Nombre de jours</h2>
+        <h4>Entrez le nombre de jours pour lesquels vous souhaitez créer une stratégie de trading. Plus le nombre de jours est élevé, plus la stratégie sera longue et plus vous pourrez potentiellement gagner. En revanche, plus le nombre de jours est faible, plus la stratégie sera courte et plus vous pourrez potentiellement perdre.</h4>
+        <input type="range" id="number-slider-day" name="number-slider-day" min="1" max="365" value="1" step="1">
+        <span id="slider-day-value">1</span>
+    </section>
+    <section id="riskLevelContainer">
         <h2>Aversion aux risques</h2>
         <h4>Pour déterminer votre aversion au risque, vous devez choisir un niveau en fonction de ce que vous êtes prêt à accepter. Plus vous augmentez le niveau, plus vous êtes prêt à accepter des risques élevés et à potentiellement gagner davantage. En revanche, plus vous diminuez le niveau, plus vous êtes prêt à accepter des risques plus faibles et à potentiellement gagner moins. Ainsi, vous pouvez ajuster le niveau en fonction de vos préférences en termes de risques et de récompenses</h4>
         <div id="slider-container">
@@ -29,7 +38,6 @@
     </section>
     <button id="bigRedButton">Créer une stratégie</button>
     <p id="response"></p>
-    <script type="module" src="script.js"></script>
 </body>
 
 <footer>
