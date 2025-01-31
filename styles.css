@@ -1,7 +1,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    padding: 1em;
+    /* padding: 1em; */
     background-image: url("moon.jpg");
     background-size: contain;
     background-position: center;
@@ -30,7 +30,7 @@ h1 {
     padding: 1em;
     text-align: center;
     width: 100%;
-    max-width: 25em;
+    max-width: 20em;
     color: #ffffff;
     font-size: medium;
     border-radius: 5em;
@@ -56,7 +56,7 @@ h1 {
     color: #ffffff;
     text-align: center;
     width: 100%;
-    max-width: 22em;
+    max-width: 20em;
     margin-top: 1em;
     padding: 1em;
     font-size: 1em;
