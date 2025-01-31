@@ -15,7 +15,8 @@ h1 {
     margin-bottom: 0.5em;
     padding: 0.1em;
     text-align: center;
-    width: 12em;
+    width: 100%;
+    max-width: 12em;
     color: #ffffff;
     font-weight: bold;
     font-size: 2.5em;
@@ -28,7 +29,8 @@ h1 {
     margin-bottom: 1em;
     padding: 1em;
     text-align: center;
-    width: 25em;
+    width: 100%;
+    max-width: 25em;
     color: #ffffff;
     font-size: medium;
     border-radius: 5em;
@@ -38,7 +40,8 @@ h1 {
 #inputNumber, #inputName {
     color: #ffffff;
     text-align: center;
-    width: 10em;
+    width: 100%;
+    max-width: 10em;
     padding: 1em;
     font-size: 1em;
     border: 2px solid #000000c8;
@@ -52,7 +55,8 @@ h1 {
 #apiKey {
     color: #ffffff;
     text-align: center;
-    width: 22em;
+    width: 100%;
+    max-width: 22em;
     margin-top: 1em;
     padding: 1em;
     font-size: 1em;
@@ -70,7 +74,8 @@ h1 {
     align-items: center;
     justify-content: center;
     margin: 1em auto;
-    width: 25em;
+    width: 100%;
+    max-width: 25em;
     text-align: center;
     color: #ffffff;
     background: #000000c0;
