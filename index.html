@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Big Red Button ChatGPT</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@200&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -15,6 +16,9 @@
 </head>
 
 <body>
+    <div class="loading-overlay"> <!-- Overlay du chargement -->
+        <div class="loading-image"></div> <!-- Image du chargement -->
+    </div>
     <h1>AI Trader Button</h1>
     <h2 id="instructions">Veuillez entrer le nom de la crypto, votre allocation disponible en dollars ainsi que votre clé API de ChatGPT</h2>
     <input type="text" id="inputName" placeholder="Nom de la crypto" required>

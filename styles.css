@@ -1,18 +1,56 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    /* padding: 1em; */
-    background-image: url("moon.jpg");
-    background-size: contain;
+    background-image: url("space.jpg");
+    background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     color: #333;
+    position: relative;
 }
 
+.loading-overlay {
+    position: fixed; /* position fixe */
+    top: 0; /* tire vers le haut */
+    left: 0; /* tire vers la gauche */
+    width: 100%; /* largeur */
+    height: 100%; /* hauteur */
+    background-color: rgba(150, 150, 150, 0.5); /* Couleur de fond semi-transparente */
+    backdrop-filter: blur(5px); /* Effet de flou */
+    -webkit-backdrop-filter: blur(5px); /* Effet de flou pour Safari */
+    display: flex; /* Affiche les éléments en ligne */
+    justify-content: center; /* Centre les éléments en ligne */
+    align-items: center; /* Centre les éléments en colonne */
+    z-index: 9999; /* Assure que l'overlay est au-dessus du contenu */
+    transition: opacity 5s ease; /* Animation du chargement */
+}
+
+.loading-image {
+    margin: auto; /* centre le texte */
+    width: 250px; /* largeur */
+    height: 250px; /* hauteur */
+    background-image: url("logo.png"); /* Chemin vers votre image de chargement */
+    background-size: cover; /* Taille de l'image */
+    animation: spin 2s linear infinite; /* Animation du chargement */
+}
+
+@keyframes spin { /* Animation du chargement */
+    0% { 
+        transform: rotate(0deg); /* Rotation de 0 degrés */
+    }
+    100% {
+        transform: rotate(360deg); /* Rotation de 360 degrés */
+    }
+}  
+
 h1 {
-    margin: auto;
-    margin-bottom: 0.5em;
+    margin: 0.5em auto;
     padding: 0.1em;
     text-align: center;
     width: 100%;
@@ -80,6 +118,7 @@ h1 {
     color: #ffffff;
     background: #000000c0;
     border-radius: 12px;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
@@ -132,6 +171,7 @@ h1 {
     cursor: pointer;
     margin-bottom: 1em;
     text-transform: uppercase;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
     transition: all 0.5s ease-in-out;
@@ -148,13 +188,15 @@ h1 {
 }
 
 #response {
+    margin: 1em auto;
+    width: 80%;
     text-align: center;
-    margin-bottom: 4em;
+    margin-bottom: 6em;
     font-size: 18px;
     color: #ffffff;
     font-weight: bold;
     border-radius: 12px;
-    /* padding: 10px; */
+    padding: 10px;
     background: #000000c0;
 }
 

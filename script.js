@@ -1,3 +1,16 @@
+/**
+ * Overlay de chargement
+ */
+function overlay() {
+    window.addEventListener("load", function() { // Lorsque la page et les ressources sont totalement chargées
+        var loadingOverlay = document.querySelector(".loading-overlay"); // Récupérer l'overlay de chargement
+        loadingOverlay.style.display = "none"; // Cacher l'overlay de chargement
+    });
+}
+
+// Appeler la fonction pour cacher l'overlay
+overlay();
+
 // Mettre à jour la valeur du slider 
 const slider = document.getElementById('number-slider');
 const sliderValue = document.getElementById('slider-value');
@@ -18,6 +31,7 @@ document.getElementById("bigRedButton").addEventListener("click", async function
     const inputNumber = document.getElementById("inputNumber").value.trim();
     const inputName = document.getElementById("inputName").value.trim().toLowerCase();
     const responseElement = document.getElementById("response");
+    const loadingOverlay = document.querySelector(".loading-overlay");
 
     // Vérifier si l'input est valide (il doit être un nombre)
     if (!inputNumber || isNaN(inputNumber)) {
@@ -26,6 +40,7 @@ document.getElementById("bigRedButton").addEventListener("click", async function
     }
 
     responseElement.textContent = "Chargement...";
+    loadingOverlay.style.display = "flex"; // Afficher l'overlay de chargement
 
     // Fonction pour récupérer toutes les infos d'une crypto
     async function getCryptoData(inputName) {
@@ -48,6 +63,7 @@ document.getElementById("bigRedButton").addEventListener("click", async function
 
         if (!cryptoData || !cryptoData.market_data) {
             responseElement.textContent = `Erreur : Impossible de récupérer les données pour ${inputName}.`;
+            loadingOverlay.style.display = "none"; // Cacher l'overlay de chargement
             return;
         }
 
@@ -137,6 +153,8 @@ document.getElementById("bigRedButton").addEventListener("click", async function
         // Afficher un message d'erreur si la requête échoue
         responseElement.textContent = "Erreur lors de la requête. Vérifie ta clé API et ta connexion internet.";
         console.error("Erreur API:", error);
+    } finally {
+        loadingOverlay.style.display = "none"; // Cacher l'overlay de chargement
     }
 });
 
