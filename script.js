@@ -27,7 +27,24 @@ sliderDay.addEventListener('input', function() {
     sliderDayValue.textContent = this.value;
 });
 
+// Gestion des utilisations gratuites
+const maxFreeUses = 3;
+let freeUses = localStorage.getItem('freeUses') ? parseInt(localStorage.getItem('freeUses')) : 0;
+const lastUseDate = localStorage.getItem('lastUseDate');
+const today = new Date().toLocaleDateString();
+
+if (lastUseDate !== today) {
+    freeUses = 0;
+    localStorage.setItem('freeUses', freeUses);
+    localStorage.setItem('lastUseDate', today);
+}
+
 document.getElementById("bigRedButton").addEventListener("click", async function () {
+    if (freeUses >= maxFreeUses) {
+        alert("Vous avez atteint la limite de 3 analyses gratuites pour aujourd'hui. Veuillez réessayer demain ou acheter un abonnement.");
+        return;
+    }
+
     const inputNumber = document.getElementById("inputNumber").value.trim();
     const inputName = document.getElementById("inputName").value.trim().toLowerCase();
     const responseElement = document.getElementById("response");
@@ -149,6 +166,10 @@ document.getElementById("bigRedButton").addEventListener("click", async function
 
         // Afficher la réponse formatée
         responseElement.innerHTML = formattedResponse;
+
+        // Incrémenter le compteur d'utilisations gratuites
+        freeUses++;
+        localStorage.setItem('freeUses', freeUses);
     } catch (error) {
         // Afficher un message d'erreur si la requête échoue
         responseElement.textContent = "Erreur lors de la requête. Vérifie ta clé API et ta connexion internet.";
