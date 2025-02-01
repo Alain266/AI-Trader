@@ -26,13 +26,13 @@
     <input type="text" id="apiKey" placeholder="API Key" required>
     <section id="dayNumberContainer">
         <h2>Nombre de jours</h2>
-        <h4>Entrez le nombre de jours pour lesquels vous souhaitez créer une stratégie de trading. Plus le nombre de jours est élevé, plus la stratégie sera longue et plus vous pourrez potentiellement gagner. En revanche, plus le nombre de jours est faible, plus la stratégie sera courte et plus vous pourrez potentiellement perdre.</h4>
+        <h4>Entrez le nombre de jours déterminant votre horizon d'investissement. Cela correspond au temps pendant lequel vous êtes prêt à maintenir votre position ouverte.</h4>
         <input type="range" id="number-slider-day" name="number-slider-day" min="1" max="365" value="1" step="1">
         <span id="slider-day-value">1</span>
     </section>
     <section id="riskLevelContainer">
         <h2>Aversion aux risques</h2>
-        <h4>Pour déterminer votre aversion au risque, vous devez choisir un niveau en fonction de ce que vous êtes prêt à accepter. Plus vous augmentez le niveau, plus vous êtes prêt à accepter des risques élevés et à potentiellement gagner davantage. En revanche, plus vous diminuez le niveau, plus vous êtes prêt à accepter des risques plus faibles et à potentiellement gagner moins. Ainsi, vous pouvez ajuster le niveau en fonction de vos préférences en termes de risques et de récompenses</h4>
+        <h4>Déterminez votre aversion au risque en choisissant un niveau adapté à votre tolérance. Plus il est élevé, plus vous acceptez de risques et de gains potentiels. À l’inverse, un niveau bas limite les risques mais aussi les gains. Ajustez-le selon vos préférences.</h4>
         <div id="slider-container">
             <span id="slider-label-left">Risque faible</span>
             <input type="range" id="number-slider" name="number-slider" min="-100" max="100" value="0" step="1">
