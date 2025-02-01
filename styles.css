@@ -90,6 +90,10 @@ h1 {
     transition: border 0.3s ease-in-out;
 }
 
+#inputName {
+    margin-bottom: 1em;
+}
+
 #apiKey {
     color: #ffffff;
     text-align: center;
